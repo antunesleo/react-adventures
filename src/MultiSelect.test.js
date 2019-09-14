@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import MultiSelect from './MultiSelect';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  const options = [
+    {id: 1, name: 'John'}, 
+    {id: 2, name: 'Robert'}
+  ];
+  ReactDOM.render(<MultiSelect options={options} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
