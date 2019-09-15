@@ -2,16 +2,15 @@ import React from 'react';
 import './MultiSelect.css';
 
 function MultiSelect(props) {
-  console.log("props", props)
-  const {options} = props;
+  const {options, selected, handleChangeToSelected, handleChangeToOptions} = props;
 
   return (
     <div className="multi-select">
       <h5>Unselected Options</h5>
       <ul>
         {
-          options.filter((option) => !option.selected).map((option) =>
-            <li key={option.id.toString()}><input type="checkbox"></input> {option.name}</li>
+         options.map((option) =>
+            <li key={option.id.toString()}><button onClick={() => handleChangeToSelected(option)}>Change</button> {option.name}</li>
           )
         }
       </ul>
@@ -19,8 +18,8 @@ function MultiSelect(props) {
       <h5>Selected Options</h5>
       <ul>
         {
-          options.filter((option) => option.selected).map((option) =>
-            <li key={option.id.toString()}><input type="checkbox"></input> {option.name}</li>
+          selected.map((option) =>
+            <li key={option.id.toString()}><button onClick={() => handleChangeToOptions(option)}>Change</button> {option.name}</li>
           )
         }
       </ul>
