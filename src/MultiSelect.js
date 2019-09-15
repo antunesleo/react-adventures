@@ -7,13 +7,23 @@ function MultiSelect(props) {
 
   return (
     <div className="multi-select">
+      <h5>Unselected Options</h5>
       <ul>
         {
-          options.map((option) =>
-            <li key={option.id.toString()}>{option.name}</li>
+          options.filter((option) => !option.selected).map((option) =>
+            <li key={option.id.toString()}><input type="checkbox"></input> {option.name}</li>
           )
         }
-    </ul>
+      </ul>
+
+      <h5>Selected Options</h5>
+      <ul>
+        {
+          options.filter((option) => option.selected).map((option) =>
+            <li key={option.id.toString()}><input type="checkbox"></input> {option.name}</li>
+          )
+        }
+      </ul>
     </div>
   );
 }

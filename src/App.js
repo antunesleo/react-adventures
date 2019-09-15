@@ -6,12 +6,13 @@ function App() {
 
   const options = [
     {id: 1, name: 'John'}, 
-    {id: 2, name: 'Robert'}
+    {id: 2, name: 'Robert'},
+    {id: 2, name: 'Peter', selected: true}
   ];
 
   return (
     <div className="app">
-      Please, select the chosen ones.
+      <h2>Please, select the chosen ones.</h2>
       <MultiSelect options={options} / >
     </div>
   );
