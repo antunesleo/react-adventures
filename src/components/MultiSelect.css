@@ -1,0 +1,13 @@
+.multi-select {
+  text-align: center;
+}
+
+.multi-select .options-list {
+  height: 385px;
+  overflow-y: auto;
+}
+
+.multi-select .selected-list {
+  height: 385px;
+  overflow-y: auto;    
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import MultiSelect from './MultiSelect';
+import MultiSelect from './components/MultiSelect';
 import './App.css';
 
 class App extends React.Component {
@@ -9,12 +9,21 @@ class App extends React.Component {
     this.state = {
       options: [
         {id: 1, name: 'John'}, 
-        {id: 2, name: 'Robert'}
+        {id: 2, name: 'Robert'}, 
+        {id: 4, name: 'Cersei'},
+        {id: 5, name: 'Nedd'}, 
+        {id: 6, name: 'Bran'},
+        {id: 7, name: 'Ramsey'}, 
+        {id: 8, name: 'Twin'},
+        {id: 9, name: 'Tyrion'}, 
+        {id: 10, name: 'Sansa'}
       ],
       selected: [{id: 3, name: 'Peter'}]
     }
     this.handleChangeToOptions = this.handleChangeToOptions.bind(this);
     this.handleChangeToSelected = this.handleChangeToSelected.bind(this);
+    this.handleSelectAll = this.handleSelectAll.bind(this);
+    this.handleUnselectAll = this.handleUnselectAll.bind(this);
   }
 
   handleChangeToSelected(option) {
@@ -27,17 +36,40 @@ class App extends React.Component {
     this.setState(state => ({selected: selected}));
   }
 
-  handleChangeToOptions(option) {
+  handleChangeToOptions(optionSelected) {
+    let selected = this.state.selected.filter((currentSelected) => {
+      return currentSelected.id !== optionSelected.id;
+    });
+    this.setState(state => ({selected: selected}));
+    let options = this.state.options;
+    options.push(optionSelected)
+    this.setState(state => ({options: options}));
+  }
 
+  handleSelectAll() {
+    this.setState(state => ({
+      selected: state.selected.concat(state.options),
+      options: []
+    }));
+  }
+
+  handleUnselectAll() {
+    this.setState(state => ({
+      options: state.options.concat(state.selected),
+      selected: []
+    }));
   }
 
   render() { 
     return (
       <div className="app">
         <h2>Please, select the chosen ones.</h2>
-        <MultiSelect options={this.state.options} selected={this.state.selected} 
+        <MultiSelect options={this.state.options} 
+                     selected={this.state.selected} 
                      handleChangeToOptions={this.handleChangeToOptions}
-                     handleChangeToSelected={this.handleChangeToSelected}/>
+                     handleChangeToSelected={this.handleChangeToSelected}
+                     handleSelectAll={this.handleSelectAll}
+                     handleUnselectAll={this.handleUnselectAll}/>
       </div>
     )
   };
