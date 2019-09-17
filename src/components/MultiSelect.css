@@ -2,12 +2,11 @@
   text-align: center;
 }
 
-.multi-select .options-list {
+.multi-select .list {
   height: 385px;
   overflow-y: auto;
 }
 
-.multi-select .selected-list {
-  height: 385px;
-  overflow-y: auto;    
+.multi-select .list .no-items-warning {
+  font-style: italic;
 }
