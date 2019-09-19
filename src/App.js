@@ -70,6 +70,9 @@ class App extends React.Component {
                      handleChangeToSelected={this.handleChangeToSelected}
                      handleSelectAll={this.handleSelectAll}
                      handleUnselectAll={this.handleUnselectAll}/>
+
+        <h4>Nasty var: {process.env.REACT_APP_NASTY_VAR} </h4>
+        
       </div>
     )
   };
