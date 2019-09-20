@@ -19,7 +19,7 @@ class App extends React.Component {
         {id: 10, name: 'Sansa'}
       ],
       selected: [{id: 3, name: 'Peter'}]
-    }
+    };
     this.handleChangeToOptions = this.handleChangeToOptions.bind(this);
     this.handleChangeToSelected = this.handleChangeToSelected.bind(this);
     this.handleSelectAll = this.handleSelectAll.bind(this);
@@ -32,7 +32,7 @@ class App extends React.Component {
     });
     this.setState(state => ({options: options}));
     let selected = this.state.selected;
-    selected.push(option)
+    selected.push(option);
     this.setState(state => ({selected: selected}));
   }
 
@@ -42,7 +42,7 @@ class App extends React.Component {
     });
     this.setState(state => ({selected: selected}));
     let options = this.state.options;
-    options.push(optionSelected)
+    options.push(optionSelected);
     this.setState(state => ({options: options}));
   }
 

@@ -2,6 +2,8 @@ import React from 'react';
 import './MultiSelect.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import ButtonChange from './ButtonChange'
+import Option from './Option';
 
 function MultiSelect(props) {
   const {options, selected, handleChangeToSelected, handleChangeToOptions, handleSelectAll, handleUnselectAll} = props;
@@ -22,18 +24,9 @@ function MultiSelect(props) {
                     )}
                     {
                     options.map((option) =>
-                        <li className="list-group-item" key={option.id.toString()}>
-                        <div class="row">
-                          <div class="col-sm-10">
-                            {option.name}
-                          </div>
-                          <div class="class-sm-2">
-                            <button onClick={() => handleChangeToSelected(option)} type="button" className="btn btn-secondary">
-                              <FontAwesomeIcon icon={faAngleRight}/>
-                            </button> 
-                          </div>
-                        </div>
-                        </li>
+                      <Option option={option}
+                              handleChange={handleChangeToSelected}
+                              icon={<FontAwesomeIcon icon={faAngleRight}/>}/>
                       )
                     }
                   </ul>
@@ -48,18 +41,9 @@ function MultiSelect(props) {
                     )}
                     {
                       selected.map((option) =>
-                        <li className="list-group-item" key={option.id.toString()}>
-                          <div class="row">
-                            <div class="col-sm-2">
-                              <button onClick={() => handleChangeToOptions(option)} type="button" className="btn btn-secondary">
-                                <FontAwesomeIcon icon={faAngleLeft} />
-                              </button>
-                            </div>
-                            <div class="col-sm-10">
-                              {option.name}
-                            </div>
-                          </div>
-                        </li>
+                        <Option option={option}
+                              handleChange={handleChangeToOptions}
+                              icon={<FontAwesomeIcon icon={faAngleLeft}/>}/>
                       )
                     }
                   </ul>
