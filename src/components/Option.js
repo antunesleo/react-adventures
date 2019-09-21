@@ -1,7 +1,5 @@
 import React from 'react';
 import ButtonChange from "./ButtonChange";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faAngleLeft} from "@fortawesome/free-solid-svg-icons";
 
 class Option extends React.Component {
 
